@@ -47,7 +47,7 @@ async function connect(url) {
   const cat = await getJson('/_dev/catalog')
   if (!cat || !Array.isArray(cat.contexts)) {
     connecting.value = false
-    connectError.value = `No catalog at ${target}/_dev/catalog — is the app running, and does it expose the domain-console contract (0004)?`
+    connectError.value = `No catalog at ${target}/_dev/catalog — is the app running, and does it expose the domain-console contract (proposal 0004)?`
     return
   }
   catalog.value = cat
@@ -177,7 +177,7 @@ onUnmounted(stopPolling)
       </h2>
       <p class="text-xs text-slate-500">
         Point the viewer at any app that exposes the <b>domain-console contract</b> (esdm-extensions
-        0004): commands, read models and the event stream all come from the app itself.
+        proposal 0004): commands, read models and the event stream all come from the app itself.
       </p>
       <p class="text-xs text-slate-500">
         No app yet? Generate one from an ESDM model with

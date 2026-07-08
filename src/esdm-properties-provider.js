@@ -2,6 +2,8 @@ import { TextFieldEntry, isTextFieldEntryEdited } from '@bpmn-io/properties-pane
 import { useService } from 'bpmn-js-properties-panel'
 import { is } from 'bpmn-js/lib/util/ModelUtil'
 
+// Adds an "ESDM rule (FEEL)" field to any sequence flow, editing the standard
+// BPMN conditionExpression that bpmn:map turns into an admits[].when guard.
 function FeelGuardEntry(props) {
   const { element, id } = props
   const modeling = useService('modeling')
@@ -20,14 +22,14 @@ function FeelGuardEntry(props) {
     id,
     element,
     label: 'FEEL guard',
-    description: 'A FEEL condition — becomes an admits[].when guard (0002). e.g. paidAmount >= total',
+    description: 'A FEEL condition — becomes an admits[].when guard (proposal 0002). e.g. paidAmount >= total',
     getValue,
     setValue,
     debounce,
   })
 }
 
-function feelGroup(element) {
+function feelGroup() {
   return {
     id: 'esdm-feel',
     label: 'ESDM rule (FEEL)',
@@ -42,7 +44,7 @@ class EsdmPropertiesProvider {
   getGroups(element) {
     return (groups) => {
       if (is(element, 'bpmn:SequenceFlow')) {
-        groups.push(feelGroup(element))
+        groups.push(feelGroup())
       }
       return groups
     }
