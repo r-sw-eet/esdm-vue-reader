@@ -1,0 +1,27 @@
+{
+    "name": "esdm-vue-reader",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host 0.0.0.0",
+        "build": "vite build",
+        "preview": "vite preview --host 0.0.0.0"
+    },
+    "dependencies": {
+        "@bpmn-io/properties-panel": "^3.24.1",
+        "@fortawesome/fontawesome-svg-core": "^6.6.0",
+        "@fortawesome/free-solid-svg-icons": "^6.6.0",
+        "@fortawesome/vue-fontawesome": "^3.0.8",
+        "bpmn-js": "^17.11.1",
+        "bpmn-js-properties-panel": "^5.20.0",
+        "vue": "^3.5.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.1.0",
+        "autoprefixer": "^10.5.2",
+        "postcss": "^8.5.16",
+        "tailwindcss": "^3.4.19",
+        "vite": "^5.4.0"
+    }
+}
