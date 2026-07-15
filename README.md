@@ -5,7 +5,7 @@ A **stack-agnostic domain console** for applications generated from
 read models update — before any end-user UI exists.
 
 One build drives **any** conforming app, no matter which generator target produced it
-(Symfony + PostgreSQL, Nimbus + EventSourcingDB, …). The viewer contains zero
+(Symfony, Nimbus or Django; on PostgreSQL or EventSourcingDB + MongoDB, …). The viewer contains zero
 stack-specific code: everything it renders comes from the target app over the
 **[Domain Console Contract (esdm-extensions 0004)](https://github.com/r-sw-eet/esdm-extensions/blob/main/proposals/0004-domain-console-contract.md)**:
 
@@ -50,8 +50,10 @@ npm run build    # static bundle in dist/ — serve it from anywhere
   [esdm-extensions](https://github.com/r-sw-eet/esdm-extensions) spec repo (proposal 0004) —
   this viewer is its reference consumer, the generators below are its producers.
 - The **reference generators** turn an ESDM model into a conforming app:
-  [esdm-2-symfony](https://github.com/r-sw-eet/esdm-2-symfony) (PHP · Symfony + PostgreSQL) and
-  [esdm-2-nimbus](https://github.com/r-sw-eet/esdm-2-nimbus) (TypeScript · Nimbus + EventSourcingDB).
+  [esdm-2-symfony](https://github.com/r-sw-eet/esdm-2-symfony) (PHP · Symfony),
+  [esdm-2-nimbus](https://github.com/r-sw-eet/esdm-2-nimbus) (TypeScript · Nimbus) and
+  [esdm-2-python](https://github.com/r-sw-eet/esdm-2-python) (Python · Django), each with a
+  PostgreSQL or EventSourcingDB + MongoDB event-store target.
   Generate and boot one, then point the viewer at it.
 - The **Author (BPMN) tab** is read/export only: edit, export `.bpmn`, save it to the app's
   `authoring/` directory and re-run the 0003 mapper — the viewer never writes back.
